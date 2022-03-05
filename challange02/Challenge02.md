@@ -1,1 +1,1 @@
-![insert element in middle](./challange02(1).jpg)
+![insert element in middle](./%20array-insert-shift.jpg)
