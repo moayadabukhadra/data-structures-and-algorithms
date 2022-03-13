@@ -26,6 +26,23 @@ methodes:
 Returns: a string representing all the values in the Linked List, formatted as:
 "{ a } -> { b } -> { c } -> NULL"
 
+## whiteboard
+
+### insert before
+- insert a node before a given value for a node
+
+![insert_before](./images/insert_before.jpg)
+
+## insert after 
+- insert a node after a given value for a node 
+
+![insert_after](./images/insert_after.jpg)
+
+## append 
+
+- adds a node to the end of the lest 
+![append](./images/append.jpg)
+
 
 
 
