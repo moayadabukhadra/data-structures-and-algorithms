@@ -9,6 +9,9 @@
 | insert | O(1) |
 | includes | O(N) |
 | str | O(N) |
+|insert_after| O(n)|
+|insert_before|O(n)|
+|append|O(n)|
 
 -  ## class Node : 
 
