@@ -1,6 +1,3 @@
-
-
-
 class Node:
     """
     has properties for the "value" stored in the Node, and a pointer to the "next" Node.
@@ -60,16 +57,27 @@ class LinkedList:
 
 
     def insert_after_another(self,old_data,new_data):
+        """
+        this function inserts a node in the linked list after the node of the value in the arguments (old data)
+        """
+        
         new_node = Node(new_data)
         temp = self.head
         while(temp):
+
             if temp.data == old_data:
                 new_node.next = temp.next
                 temp.next = new_node
-                return 0
+                return 0  
             temp = temp.next
-
+        if temp is None:
+            print("the value is not in the linked list")
+            return "the value is not in the linked list"
+           
     def insert_before_another(self,old_data,new_data):
+        """
+        this function inserts a node in the linked list before the node of the value in the arguments (old data)
+        """
         new_node = Node(new_data)
         old_data=Node(old_data)
         temp = self.head
@@ -79,16 +87,49 @@ class LinkedList:
             
         else:
             while(temp):
-                try:
-                    if temp.next.data == old_data.data:
-                        new_node.next = temp.next
-                        temp.next = new_node
-                        return 0
-                except: 
+                if temp.next is None:
+                    print("the value is not in the linked list")
+                    return "the value is not in the linked list"
+                
+                if temp.next.data == old_data.data:
+                    new_node.next = temp.next
+                    temp.next = new_node
                     return 0
                 
-                     
                 temp = temp.next
+            
+
+
+    def kthFromEnd(self, k):
+        """
+        Return the node's value that is k places from the tail of the linked list.
+        """
+        temp = self.head
+        length = 0
+        if type(k)!= type(5) or k<0:
+            print("the index should be a positive integer value")
+            return "the index should be a positive integer value"
+        while temp.next is not None:
+            temp = temp.next
+            length += 1
+
+        if k > length: 
+            """
+            if the enterd number is bigger than the length of the linked list
+            """
+            print('Location is greater than the length of LinkedList')
+            return 'Location is greater than the length of LinkedList'
+        temp = self.head
+        for i in range(0, length - k):
+            temp = temp.next
+        print(temp.data)
+        return temp.data
+                
+        
+            
+
+
+
 
 
     
@@ -137,6 +178,9 @@ class LinkedList:
         return output
 
     def append(self, node):
+        """
+        this function add's a node at the end of the linked list
+        """
         new_node=Node(node)
         if self.head is None:
             self.head = new_node
@@ -148,6 +192,9 @@ class LinkedList:
             current.next = new_node
     
     def delete(self, data):
+        """
+        this function takes a value for a node in the linked list and deletes it 
+        """
         current = self.head
         previous = None
         found = False
@@ -158,8 +205,8 @@ class LinkedList:
                 previous = current
                 current = current.get_next()
         if current is None:
-            print("Data not in list")
-            raise ValueError("Data not in list")
+            print("the value is not in the linked list")
+            return("the value is not in the linked list")
         if previous is None:
             self.head = current.get_next()
         else:
@@ -176,12 +223,10 @@ ll = LinkedList()
 ll.insert("a")
 ll.insert("b")
 ll.insert("c")
-ll.append("moayad")
-ll.append(None)
-ll.insert_after_another("a", 8)
-ll.insert_before_another("moayad",5)
-ll.delete("a")
-
-print(ll.head.data)
+ll.insert("d")
+ll.insert_after_another("d", 8)
+ll.insert_before_another("c",5)
+ll.kthFromEnd(5)
 ll.printList()
 ll.__str__()
+

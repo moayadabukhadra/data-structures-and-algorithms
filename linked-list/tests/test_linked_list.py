@@ -1,4 +1,5 @@
 
+from mmap import ALLOCATIONGRANULARITY
 from linked_list.linked_list import LinkedList
 
 def test_empty_linked_list():
@@ -94,6 +95,46 @@ def test_insert_after():
     expected=[1,2,3,4,5,10,6,7]
     assert actual==expected
 
+def test_insert_after_value_not_in_the_list():
+    ll=LinkedList()
+    data=[1,2,3,4,5,6]
+    for el in data:
+        ll.insert(el)
+    actual=ll.insert_after_another(50,11)
+    expected="the value is not in the linked list"
+    assert actual==expected
+
+def test_insert_after_last_node():
+    ll=LinkedList()
+    data=[1,2,3,4,5,6]
+    for el in data:
+        ll.insert(el)
+    ll.insert_after_another(6,100)
+    actual=ll.printList()
+    expected=[1,2,3,4,5,6,100]
+    assert actual== expected
+
+def test_insert_before_value_not_in_linked_list():
+    ll=LinkedList()
+    data=[1,2,3,4,5,6]
+    for el in data:
+        ll.insert(el)
+    actual=ll.insert_before_another(50,11)
+    expected="the value is not in the linked list"
+    assert actual==expected
+
+def test_insert_before_the_head_node():
+    ll=LinkedList()
+    data=[1,2,3,4,5,6]
+    for el in data:
+        ll.insert(el)
+    ll.insert_before_another(1,100)
+    actual = ll.printList()
+    expected=[100,1,2,3,4,5,6]
+    assert actual==expected
+
+
+
 def test_insert_before():
     ll=LinkedList()
     data=[1,2,3,4,5,6]
@@ -119,4 +160,59 @@ def test_append():
     actual = ll.printList()
     expected= [1,2,3,4,5,6,10]
     assert actual==expected
+
+def test_delete_value_not_in_list():
+    ll=LinkedList()
+    data=[1,2,3,4,5,6]
+    for el in data:
+        ll.insert(el)
+
+    
+    actual=ll.delete(10)
+    expected="the value is not in the linked list"
+    assert actual==expected
+
+def test_kth_from_end_happy_path():
+    ll=LinkedList()
+    data=[1,2,3,4,5,6]
+    for el in data:
+        ll.insert(el)
+    actual=ll.kthFromEnd(4)
+    expected = 2
+    assert actual==expected
+
+def test_kth_from_end_edge_case():
+    "if the index was 0 which is the last node in the linked list"
+    ll=LinkedList()
+    data=[1,2,3,4,5,6]
+    for el in data:
+        ll.insert(el)
+    actual=ll.kthFromEnd(0)
+    expected=6
+    assert actual==expected
+
+def test_kth_from_end_expected_failure_one():
+    "k > the length of the list"
+    ll=LinkedList()
+    data=[1,2,3,4,5,6]
+    for el in data:
+        ll.insert(el)
+    actual=ll.kthFromEnd(7)
+    expected='Location is greater than the length of LinkedList'
+    assert actual==expected
+
+def test_kth_from_end_expected_failure_two():
+    "k > the length of the list"
+    ll=LinkedList()
+    data=[1,2,3,4,5,6]
+    for el in data:
+        ll.insert(el)
+    actual=ll.kthFromEnd("this is a string")
+    expected="the index should be a positive integer value"
+    assert actual==expected
+
+
+
+
+
 

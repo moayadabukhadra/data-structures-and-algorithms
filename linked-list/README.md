@@ -12,6 +12,7 @@
 |insert_after| O(n)|
 |insert_before|O(n)|
 |append|O(n)|
+|KthFromEnd|O(n-k)|
 
 -  ## class Node : 
 
@@ -45,6 +46,11 @@ Returns: a string representing all the values in the Linked List, formatted as:
 
 - adds a node to the end of the lest 
 ![append](./images/append.jpg)
+
+## KthFromEnd:
+
+- return a node with the index of an integer from the back of the linked list 
+![KthFromEnd](./images/KthFromEnd.jpg)
 
 
 
