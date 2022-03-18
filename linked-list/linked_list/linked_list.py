@@ -106,26 +106,23 @@ class LinkedList:
         """
         temp = self.head
         length = 0
-        if type(k)!= type(5) or k<0:
-            print("the index should be a positive integer value")
-            return "the index should be a positive integer value"
-        while temp.next is not None:
-            temp = temp.next
-            length += 1
-
-        if k > length: 
-            """
-            if the enterd number is bigger than the length of the linked list
-            """
-            print('Location is greater than the length of LinkedList')
-            return 'Location is greater than the length of LinkedList'
-        temp = self.head
-        for i in range(0, length - k):
-            temp = temp.next
-        print(temp.data)
-        return temp.data
-                
-        
+        try:
+            while temp.next is not None:
+                temp = temp.next
+                length += 1
+            temp = self.head
+            if k>length:
+                print("Location is greater than the length of LinkedList")
+                return "Location is greater than the length of LinkedList"
+            else:
+                for i in range(0, length - k):
+                    temp = temp.next
+                print(temp.data)
+                return temp.data
+        except:
+                print("the index should be a positive integer value")
+                raise ValueError("the index should be a positive integer value")
+            
             
 
 
@@ -218,15 +215,15 @@ class LinkedList:
 
 
 
-
-ll = LinkedList()
-ll.insert("a")
-ll.insert("b")
-ll.insert("c")
-ll.insert("d")
-ll.insert_after_another("d", 8)
-ll.insert_before_another("c",5)
-ll.kthFromEnd(5)
-ll.printList()
-ll.__str__()
+if __name__=="__main__":
+    ll = LinkedList()
+    ll.insert("a")
+    ll.insert("b")
+    ll.insert("c")
+    ll.insert("d")
+    ll.insert_after_another("d", 8)
+    ll.insert_before_another("c",5)
+    ll.kthFromEnd(1)
+    ll.printList()
+    ll.__str__()
 

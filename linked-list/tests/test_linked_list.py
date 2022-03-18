@@ -1,5 +1,4 @@
-
-from mmap import ALLOCATIONGRANULARITY
+import unittest
 from linked_list.linked_list import LinkedList
 
 def test_empty_linked_list():
@@ -191,27 +190,30 @@ def test_kth_from_end_edge_case():
     expected=6
     assert actual==expected
 
-def test_kth_from_end_expected_failure_one():
-    "k > the length of the list"
+def test_kth_from_end_k_bigger_than_length():
+    "if k > the length of the list"
     ll=LinkedList()
     data=[1,2,3,4,5,6]
     for el in data:
         ll.insert(el)
-    actual=ll.kthFromEnd(7)
-    expected='Location is greater than the length of LinkedList'
-    assert actual==expected
-
-def test_kth_from_end_expected_failure_two():
-    "k > the length of the list"
-    ll=LinkedList()
-    data=[1,2,3,4,5,6]
-    for el in data:
-        ll.insert(el)
-    actual=ll.kthFromEnd("this is a string")
-    expected="the index should be a positive integer value"
+    actual=ll.kthFromEnd(10)
+    expected="Location is greater than the length of LinkedList"
     assert actual==expected
 
 
+
+
+
+class TestlinkedList(unittest.TestCase):
+    "expcted failure test"
+    def test_kth_from_end_expected_failure_two(self):
+        ll=LinkedList()
+        data=[1,2,3,4,5,6]
+        for el in data:
+            ll.insert(el)
+       
+        with self.assertRaises(ValueError):
+            ll.kthFromEnd("this is a string")
 
 
 
