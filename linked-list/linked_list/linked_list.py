@@ -1,3 +1,6 @@
+from hashlib import new
+
+
 class Node:
     """
     has properties for the "value" stored in the Node, and a pointer to the "next" Node.
@@ -209,6 +212,60 @@ class LinkedList:
         else:
             previous.set_next(current.get_next())
     
+    def zip_lists(self,list1,list2):
+        current1=list1.head
+        current2=list2.head
+        if current1==None:
+            return list2
+        if current2==None:
+            return list1
+        if current1 ==None and current2==None:
+            print("the two lists are empty")
+            raise Exception("the two lists are empty")
+        new_list=LinkedList()
+        current3=new_list.head
+        current3=current1
+        current3.next=current2
+        current1=current1.next
+        current2=current2.next
+        new_list.__str__
+        return new_list
+    
+    def zip_lists(self,list1, list2):
+        """
+        this function takes two list as input and returns a new list of the two list zipped together 
+        """
+        if list1.head ==None and list2.head==None:
+            "if both of the lists is empty"
+            print("both lists Can't be empty")
+            raise Exception("both lists Can't be empty")
+        "if one of the lists is empty"
+        if list1.head == None and list:
+            return list2
+        elif list2.head == None:
+            return list1
+        new_list = LinkedList()
+        current1 = list1.head
+        current2 = list2.head
+        while current1 or current2:
+            if current1:
+                    new_list.append(current1.data)
+
+                    new_list.append(current2.data)
+            if current1 and current1.next:
+                current1 = current1.next
+            else:
+                current1 = False
+            if current2 and current2.next:
+                current2 = current2.next
+            else:
+                current2 = False
+        new_list.__str__()
+        return new_list
+    
+        
+
+        
     
        
 
@@ -216,14 +273,17 @@ class LinkedList:
 
 
 if __name__=="__main__":
-    ll = LinkedList()
-    ll.insert("a")
-    ll.insert("b")
-    ll.insert("c")
-    ll.insert("d")
-    ll.insert_after_another("d", 8)
-    ll.insert_before_another("c",5)
-    ll.kthFromEnd(1)
-    ll.printList()
-    ll.__str__()
+    ll1=LinkedList()
+    ll1.insert(1)
+    ll1.insert(3)
+    ll1.insert(5)
+    ll1.__str__()
+    ll2=LinkedList()
+    ll2.insert(2)
+    ll2.insert(4)
+    ll2.insert(6)
+
+    ll2.__str__()
+    ll=LinkedList()
+    ll.zip_lists(ll1,ll2)
 

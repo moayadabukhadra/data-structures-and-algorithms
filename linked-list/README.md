@@ -52,8 +52,10 @@ Returns: a string representing all the values in the Linked List, formatted as:
 - return a node with the index of an integer from the back of the linked list 
 ![KthFromEnd](./images/KthFromEnd.jpg)
 
+## zip_lists
+-  takes two list as input and returns a new list of the two list zipped together 
 
-
+![zip_lists](./images/zip_lists.jpg)
 
 
 

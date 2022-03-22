@@ -216,5 +216,35 @@ class TestlinkedList(unittest.TestCase):
             ll.kthFromEnd("this is a string")
 
 
+    def test_linked_list_zip_happy_path(self):
+        ll1= LinkedList()
+        ll1.insert(1)
+        ll1.insert(3)
+        ll1.insert(5)
+        ll2= LinkedList()
+        ll2.insert(2)
+        ll2.insert(4)
+        ll2.insert(6)
+        ll=LinkedList()
+        
+        self.assertEqual(ll.zip_lists(ll1,ll2).__str__(), "1 --> 2 --> 3 --> 4 --> 5 --> 6 --> None")
+
+    def test_linked_list_edge_case(self):
+        "if one of the lists is empty it will return the other list"
+        ll1= LinkedList()
+        ll1.insert(1)
+        ll1.insert(3)
+        ll1.insert(5)
+        ll2= LinkedList()
+        ll=LinkedList()
+        self.assertEqual(ll.zip_lists(ll1,ll2).__str__(), ll1.__str__())
+      
+    def test_zip_lists_expected_failure(self):
+        ll1= LinkedList()
+        ll2= LinkedList()
+        ll=LinkedList()
+        with self.assertRaises(Exception):
+            ll.zip_lists(ll1,ll2)
+
 
 
