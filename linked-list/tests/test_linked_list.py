@@ -217,6 +217,7 @@ class TestlinkedList(unittest.TestCase):
 
 
     def test_linked_list_zip_happy_path(self):
+        
         ll1= LinkedList()
         ll1.insert(1)
         ll1.insert(3)
@@ -245,6 +246,24 @@ class TestlinkedList(unittest.TestCase):
         ll=LinkedList()
         with self.assertRaises(Exception):
             ll.zip_lists(ll1,ll2)
+
+    def test_zip_lists_if_the_length_is_different(self):
+        """
+        if one of the lists is bigger than the other the new list will take the nodes in the bigger one 
+        after the first one is done
+        """
+        ll1= LinkedList()
+        ll1.insert(1)
+        ll1.insert(3)
+        ll1.insert(5)
+        ll1.insert(7)
+        ll1.insert(9)
+        ll2= LinkedList()
+        ll2.insert(2)
+        ll2.insert(4)
+        ll2.insert(6)
+        ll=LinkedList()
+        self.assertEqual(ll.zip_lists(ll1,ll2).__str__,"1 --> 2 --> 3 --> 4 --> 5 --> 6 --> 7 --> 9 None")
 
 
 
