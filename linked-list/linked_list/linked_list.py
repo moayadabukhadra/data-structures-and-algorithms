@@ -249,9 +249,9 @@ class LinkedList:
         current2 = list2.head
         while current1 or current2:
             if current1:
-                    new_list.append(current1.data)
-
-                    new_list.append(current2.data)
+                new_list.append(current1.data)
+            if current2:
+                new_list.append(current2.data)
             if current1 and current1.next:
                 current1 = current1.next
             else:
