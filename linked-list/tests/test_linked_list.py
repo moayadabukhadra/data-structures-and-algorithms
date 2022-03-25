@@ -1,3 +1,4 @@
+
 import unittest
 from linked_list.linked_list import LinkedList
 
@@ -263,7 +264,35 @@ class TestlinkedList(unittest.TestCase):
         ll2.insert(4)
         ll2.insert(6)
         ll=LinkedList()
-        self.assertEqual(ll.zip_lists(ll1,ll2).__str__,"1 --> 2 --> 3 --> 4 --> 5 --> 6 --> 7 --> 9 None")
+        self.assertEqual(ll.zip_lists(ll1,ll2).__str__(),"1 --> 2 --> 3 --> 4 --> 5 --> 6 --> 7 --> 9 --> None")
 
 
+        "palindrom Function tests"
+    def test_palindrom_True(self):
+        ll2=LinkedList()
+        ll2.insert(2)
+        ll2.insert(4)
+        ll2.insert(6)
+        ll2.insert(4)
+        ll2.insert(2)
+
+        self.assertEqual(ll2.palindrome(),True)
+
+    def test_palindrom_False(self):
+        ll2=LinkedList()
+        ll2.insert(2)
+        ll2.insert(6)
+        ll2.insert(4)
+        ll2.insert(2)
+
+        self.assertEqual(ll2.palindrome(),False)
+    
+    def test_palindrom_Empty_list(self):
+        ll2=LinkedList()
+
+
+        with self.assertRaises(Exception):
+            ll2.palindrome()
+    
+    
 
