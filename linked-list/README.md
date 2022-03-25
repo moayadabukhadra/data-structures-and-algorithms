@@ -12,7 +12,9 @@
 |insert_after| O(n)|
 |insert_before|O(n)|
 |append|O(n)|
-|KthFromEnd|O(n-k)|
+|KthFromEnd|O(n)|
+|palindrome|O(n)|
+|zip_lists|O(n)|
 
 -  ## class Node : 
 
@@ -56,6 +58,12 @@ Returns: a string representing all the values in the Linked List, formatted as:
 -  takes two list as input and returns a new list of the two list zipped together 
 
 ![zip_lists](./images/zip_lists.jpg)
+
+## palindrome
+
+- "this function checks if the linked list is palindrome returns true else returns False"
+
+![palindrome](./images/palindrome.jpg)
 
 
 

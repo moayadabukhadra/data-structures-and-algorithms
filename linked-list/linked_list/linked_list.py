@@ -1,4 +1,5 @@
-from hashlib import new
+
+from unittest import result
 
 
 class Node:
@@ -190,6 +191,9 @@ class LinkedList:
             while current.next is not None:
                 current = current.next
             current.next = new_node
+        
+
+
     
     def delete(self, data):
         """
@@ -263,7 +267,67 @@ class LinkedList:
         new_list.__str__()
         return new_list
     
+    def palindrome(self):
+        "this function checks if the linked list is palindrome returns true else returns False"
+        temp=self.head
+        tail=self.head
+        check_list=[] 
+        if self.head==None:
+            #if the linked list was empty
+            raise Exception("the list is empty")
+        while tail:
+            check_list.append(tail.data) #appends the linked list values to a normal list 
+            tail=tail.next
+        # print(check_list)
+        while temp!=None:
+            popped= check_list.pop() #takes an element from the end of the check list 
+        # to compare it with the first one and delets it 
+            if popped == temp.data:
+                result= True
+            else:
+                result=False
+                print(result)
+                return False
+            temp=temp.next
+        print(result)
+        return result
+    
+
+
+    def palindrome_two(self):
+        "without using built in functions"
+        "this function checks if the linked list is palindrome returns true else returns False"
+        temp=self.head
+        tail=self.head
+        check_list=[] 
+        if self.head==None:
+            #if the linked list was empty
+            raise Exception("the list is empty")
+        while tail:
+            check_list+=[tail.data] #appends the linked list values to a normal list 
+            tail=tail.next
+        print(check_list)
+        l=len(check_list)
+        i=0
+        for i in range(len(check_list)):
+
+            if check_list[l-1] == temp.data:
+                result= True
+            else:
+                result=False
+                print(result)
+                return False
+            temp=temp.next
+            l-=1
+        print(result)
+        return result
+
         
+                
+            
+    
+
+
 
         
     
@@ -274,16 +338,26 @@ class LinkedList:
 
 if __name__=="__main__":
     ll1=LinkedList()
-    ll1.insert(1)
-    ll1.insert(3)
-    ll1.insert(5)
+    ll1.insert("m")
+    ll1.insert("o")
+    ll1.insert("a")
+    ll1.insert("y")
+    ll1.insert("a")
+    ll1.insert("d")
+    # ll1.insert("a")
+    # ll1.insert("t")
     ll1.__str__()
     ll2=LinkedList()
-    ll2.insert(2)
-    ll2.insert(4)
-    ll2.insert(6)
+    ll2.insert("m")
+    ll2.insert("o")
+    ll2.insert("a")
+    ll2.insert("o")
+    ll2.insert("o")
+    ll2.insert("m")
 
     ll2.__str__()
+    ll1.palindrome_two()
+    ll2.palindrome_two()
     ll=LinkedList()
-    ll.zip_lists(ll1,ll2)
+    # ll.zip_lists(ll1,ll2)
 
