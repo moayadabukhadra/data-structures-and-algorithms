@@ -1,7 +1,4 @@
 
-from unittest import result
-
-
 class Node:
     """
     has properties for the "value" stored in the Node, and a pointer to the "next" Node.
