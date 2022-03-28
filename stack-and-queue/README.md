@@ -37,4 +37,20 @@ This means that the last item in the queue will be the last item out of the queu
 
 
 
+# pseduo_queue:
+
+- Implementation for a queue using two stacks from the stack class
+
+
+## Pseduo queue methods:
+
+1. enqueue:
+this function adds a node to the queue using a first-in, first-out approach
+
+![enqeueu](./images/PseduoQueue.enqueue.jpg)
+
+2. dequeue 
+this function removes the node located at the front of the queue which is the top value for the sec stack using a first-in, first-out approach
+
+![dequeue](./images/PseduoQueue.dequeue.jpg)
 

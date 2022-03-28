@@ -52,15 +52,15 @@ class Stack :
         "This function Returns: Value of the node located at the top of the stack"
         if self.top==None:
             raise Exception("The Stack is empty")
-        print(self.top.value)
+        # print(self.top.value)
         return self.top.value
     
     def is_empty(self):
         """
         this function returns a boolean True if the stack is empty False if Not 
         """
-        print(self.top==None)
         return self.top == None 
+    
 
 if __name__=='__main__':
     stack=Stack()
