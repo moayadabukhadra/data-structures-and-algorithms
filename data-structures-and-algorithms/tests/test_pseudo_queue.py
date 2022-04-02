@@ -31,9 +31,9 @@ def test_dequeue():
     queue.enqueue(1)
     queue.enqueue(2)
     queue.enqueue(3)
-
-    actual=queue.dequeue()
-    expected=1
+    queue.dequeue()
+    actual=queue.__str__()
+    expected="front --> 2 --> 3 --> rear"
     assert actual==expected
 
 def test_psedu_queue_empty_multible_dequeue():
