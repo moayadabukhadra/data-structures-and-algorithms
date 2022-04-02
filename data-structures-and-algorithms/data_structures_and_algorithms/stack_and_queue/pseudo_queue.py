@@ -27,7 +27,7 @@ class PseduQueue:
             raise Exception("the queue is empty")
         # print(self.sec_stack.peek().value)
         # return self.sec_stack.pop()
-        return self.first_stack.pop()
+        self.first_stack.pop()
 
     def is_empty(self):
         "returns a boolean if the queue empty or not"
@@ -50,7 +50,9 @@ if __name__=='__main__':
     queue.enqueue(1)
     queue.enqueue(2)
     queue.enqueue(3)
-   
+    queue.enqueue(4)
+    queue.enqueue(5)
+    queue.dequeue()
     queue.__str__()
     queue.is_empty()
 
