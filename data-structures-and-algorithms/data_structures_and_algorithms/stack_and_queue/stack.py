@@ -59,6 +59,10 @@ class Stack :
         return self.top == None 
     
 
+
+
+
+
 if __name__=='__main__':
     stack=Stack()
     stack.push(1)
