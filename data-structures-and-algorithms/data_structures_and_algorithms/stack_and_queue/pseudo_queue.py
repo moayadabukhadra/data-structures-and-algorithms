@@ -45,15 +45,17 @@ class PseduQueue:
         return output
 
 
+    
+
 if __name__=='__main__':
     queue=PseduQueue()
     queue.enqueue(1)
     queue.enqueue(2)
     queue.enqueue(3)
     queue.dequeue()
-    
+
     queue.__str__()
-    queue.is_empty()
+    # queue.is_empty()
 
    
 
