@@ -8,3 +8,4 @@
 |singly_Linked Lists|[Linked_list](./data-structures-and-algorithms/data_structures_and_algorithms/linked_list/README.md)|
 |stack_and_queue|[stack_and_queue](./data-structures-and-algorithms/data_structures_and_algorithms/stack_and_queue/README.md)
 animals Shelter|[animals shelter](./data-structures-and-algorithms/data_structures_and_algorithms/stack_queue_animal_shelter/README.md)
+|stack-queue-brackets|[stack-queue-brackets](./data-structures-and-algorithms/data_structures_and_algorithms/stack_queue_brackets/README.md)
