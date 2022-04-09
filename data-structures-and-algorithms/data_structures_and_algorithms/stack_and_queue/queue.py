@@ -1,3 +1,7 @@
+
+import queue
+
+
 class Node :
     def __init__(self,value):
         self.value=value
@@ -31,7 +35,7 @@ class Queue :
         temp=self.front
         self.front=self.front.next
         temp.next=None
-        print(f"{temp.value} removed from the queue")
+        # print(f"{temp.value} removed from the queue")
         return temp.value
 
     def is_empty(self):
@@ -70,12 +74,49 @@ class Queue :
         print(f"the size of the queue {size}")
         return size
 
+
+    def DuckDuckGoose(self,k,string):
+        if  type(k)!=int or k<1 :
+            raise Exception("k value should be an integer and bigger than zero ")
+        if len(string)<=1:
+            raise Exception("There is only one player")
+        players=string.split(",")
+        for player in players:
+           self.enqueue(player)
+        if k ==1  :
+            return self.rear.value
+        print(players)
+        i=1
+        while self.front!=self.rear:
+            while i!=k:
+                temp=self.front.value
+                self.dequeue()
+                self.enqueue(temp)
+                i+=1
+
+            else:
+                print(f"{self.dequeue()} was removed")
+
+                i=1
+        print(self.front.value)
+        return self.front.value        
+                
+
+
+
+
+
+
 if __name__=='__main__':
-    queue=  Queue()
-    queue.enqueue(1)
-    queue.enqueue(2)
-    queue.enqueue(3)
-    queue.dequeue()
-    queue.peek()
-    queue.size()
-    queue.is_empty()
+    queue =  Queue()
+    # queue.enqueue(1)
+    # queue.enqueue(2)
+    # queue.enqueue(3)
+    # queue.enqueue(4)
+    # queue.enqueue(5)
+    # queue.enqueue(6)
+    queue.DuckDuckGoose(5,"A,B,C,D,E")
+    # queue.dequeue()
+    # queue.peek()
+    # queue.size()
+    # queue.is_empty()
