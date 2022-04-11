@@ -37,3 +37,10 @@ BigO(log2n)
 this function returns a boolean  whether or not the value is in the tree at least once.
 BigO(log2n)
 
+- tree max :
+this function return the maximum value in the tree 
+ BigO(n)
+
+![tree_max](../images/tree_max.jpg)
+
+

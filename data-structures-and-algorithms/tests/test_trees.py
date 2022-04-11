@@ -75,6 +75,11 @@ def test_contains():
     expected=False
     assert actual == expected
 
+def test_tree_max(tree):
+    actual=tree.tree_max()
+    expected=7
+    assert actual==expected
+
 @pytest.fixture
 def tree():
     tree = BinarpointerTree()
@@ -94,6 +99,7 @@ def tree():
     node6.right=node5   
     return tree
 
+
 class TestStack(unittest.TestCase):
     def test_pre_order_exception(self):
         tree= BinarpointerTree
@@ -110,3 +116,8 @@ class TestStack(unittest.TestCase):
         tree= BinarpointerTree
         with self.assertRaises(Exception):
             tree.postOrder_Iteration()
+
+    def test_tree_max_exception(self):
+        tree=BinarpointerTree()
+        with self.assertRaises(Exception):
+            tree.tree_max()
