@@ -43,4 +43,10 @@ this function return the maximum value in the tree
 
 ![tree_max](../images/tree_max.jpg)
 
+- breadth_first
+
+this function list of all values in the tree, in the order they were encountered
+
+![breadth_first](../images/breadth_first.jpg)
+
 
