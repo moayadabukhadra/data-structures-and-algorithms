@@ -1,6 +1,6 @@
 import pytest
 import unittest
-from data_structures_and_algorithms.trees.trees import BinarpointerSearchTree, BinarpointerTree , TNode
+from data_structures_and_algorithms.trees.trees import BinarpointerSearchTree, BinarpointerTree , TNode,breadth_first
 
 
 def test_empty_tree():
@@ -80,6 +80,11 @@ def test_tree_max(tree):
     expected=7
     assert actual==expected
 
+def test_breadth_first(tree):
+    actual= breadth_first(tree)
+    expected=[7, 3, 6, 1, 2, 4, 5]
+    assert actual==expected
+
 @pytest.fixture
 def tree():
     tree = BinarpointerTree()
@@ -121,3 +126,8 @@ class TestStack(unittest.TestCase):
         tree=BinarpointerTree()
         with self.assertRaises(Exception):
             tree.tree_max()
+    def test_breadth_tset_empty_tree(self):
+        tree=BinarpointerTree()
+        with self.assertRaises(Exception):
+            breadth_first(tree)
+    

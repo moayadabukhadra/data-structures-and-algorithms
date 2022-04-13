@@ -1,8 +1,4 @@
-
-from logging import root
-from platform import node
-from turtle import left
-from unittest import result
+from data_structures_and_algorithms.stack_and_queue.queue import Queue
 from data_structures_and_algorithms.stack_and_queue.stack import Stack
 
 class TNode:
@@ -150,6 +146,17 @@ class BinarpointerTree:
 
         print(max)
         return max
+    
+
+
+
+
+
+
+        
+
+            
+
         
 
 
@@ -200,42 +207,74 @@ class BinarpointerSearchTree(BinarpointerTree):
         print(False)
         return False
     
-
+def breadth_first(tree):
+    if not tree.root:
+        raise Exception("The tree is empty")
+    result=[]
+    root=tree.root
+    queue=Queue()
+    queue.enqueue(root)
+    while not queue.is_empty():
+        if queue.front.value.left:
+            queue.enqueue(queue.front.value.left)
+        if queue.front.value.right:
+            queue.enqueue(queue.front.value.right)
+        dequeued=queue.dequeue()
+        result.append(dequeued.value)
+    print(result)
+    return result
 
     
 
 if __name__=='__main__':        
+    # node1 = TNode(2)
+    # node2 = TNode(7)
+    # node3 = TNode(5)
+    # node4 = TNode(2)
+    # node5 = TNode(6)
+    # node6 = TNode(9)
+    # node7 = TNode(5)
+    # node8=TNode(11)
+    # node9=TNode(4)
+   
+    # node1.left=node2
+    # node1.right=node3
+    # node2.left=node4
+    # node2.right=node5
+    # node3.right=node6
+    # node6.left=node9
+    # node5.left=node7
+    # node5.right=node8
+
+    tree = BinarpointerTree()
     node1 = TNode(1)
     node2 = TNode(2)
     node3 = TNode(3)
     node4 = TNode(4)
     node5 = TNode(5)
     node6 = TNode(6)
-    node7 = TNode(7)
-    node8=TNode(8)
-    node100=TNode(100)
-    node500=TNode(500)
-    node600=TNode(600)
+    node7 = TNode(7) 
+    tree.root = node7
     node7.left = node3
     node7.right=node6
     node3.left = node1
     node3.right = node2
     node6.left=node4
-    node6.right=node5
-    node5.left=node8
-    node4.left=node100
-    node100.left=node600
-    node1.right=node500
+    node6.right=node5   
+    
+
     bs=BinarpointerSearchTree()
-    tree = BinarpointerTree()
-    bs.add(1)
-    bs.add(2)
-    bs.add(3)
-    bs.add(4)
-    tree.root = node7
-    tree.pre_order_itiration()
-    bs.add(5)
-    bs.add(6)
+    # tree = BinarpointerTree()
+    tree.root=node7
+    breadth_first(tree)
+    # bs.add(1)
+    # bs.add(2)
+    # bs.add(3)
+    # bs.add(4)
+    # tree.root = node7
+    # tree.pre_order_itiration()
+    # bs.add(5)
+    # bs.add(6)
     # bs.inOrder_iteration()
    
 
