@@ -19,7 +19,10 @@ def test_only_root_tree():
     expected= "root"
     assert actual== expected
 
-
+def test_BST_is_asub_class_of_bt():
+    actual=issubclass(BinarpointerSearchTree,BinarpointerTree)
+    expected=True
+    assert actual == expected
 def test_add_left_right_child():
     "instantiate abinary search tree"
     bs=BinarpointerSearchTree()

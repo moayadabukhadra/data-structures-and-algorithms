@@ -132,13 +132,13 @@ class BinarpointerTree:
 
                 stack.push(current)
                 current = current.left
-                if current is not None and  current.value>max :
+                if current is not None and type(current.value) is int  and  current.value>max :
                     max=current.value
            
             elif not stack.is_empty():
                 current = stack.pop()
                 current = current.right
-                if current is not None and current.value>max:
+                if current is not None and type(current.value) is int and current.value>max:
                     max=current.value
 
             else:
@@ -254,13 +254,16 @@ if __name__=='__main__':
     node5 = TNode(5)
     node6 = TNode(6)
     node7 = TNode(7) 
+    node100=TNode(100)
     tree.root = node7
     node7.left = node3
     node7.right=node6
     node3.left = node1
     node3.right = node2
     node6.left=node4
-    node6.right=node5   
+    node6.right=node5 
+    node5.right=node100
+
     
 
     bs=BinarpointerSearchTree()
@@ -281,3 +284,4 @@ if __name__=='__main__':
     # bs.contains(1)
     # bs.inOrder_iteration()
     tree.tree_max()
+    print(issubclass(BinarpointerSearchTree,BinarpointerTree))
