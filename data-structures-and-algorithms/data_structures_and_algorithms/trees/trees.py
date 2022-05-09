@@ -1,4 +1,7 @@
-from data_structures_and_algorithms.stack_and_queue.queue import Queue
+from platform import node
+import queue
+from unittest import result
+from data_structures_and_algorithms.stack_and_queue.queue import Node, Queue
 from data_structures_and_algorithms.stack_and_queue.stack import Stack
 
 class TNode:
@@ -132,13 +135,13 @@ class BinarpointerTree:
 
                 stack.push(current)
                 current = current.left
-                if current is not None and  current.value>max :
+                if current is not None and type(current.value) is int  and  current.value>max :
                     max=current.value
            
             elif not stack.is_empty():
                 current = stack.pop()
                 current = current.right
-                if current is not None and current.value>max:
+                if current is not None and type(current.value) is int and current.value>max:
                     max=current.value
 
             else:
@@ -224,60 +227,73 @@ def breadth_first(tree):
     print(result)
     return result
 
+class kNode:
+    def __init__(self,value):
+        self.value=value
+        self.child=[]
+
+class k_ary_Tree:
+    def __init__(self):
+        self.root=None
+    
+def fizz_buzz_tree(kTree):
+    if not kTree.root:
+        raise Exception("The tree is empty")
+    result=[]
+    root =kTree.root
+    queue=Queue()
+    if root.value % 3 ==0 :
+        root.value = "Fizz"
+    elif root.value % 5 == 0 :
+        root.value = "Buzz"
+    else : 
+        root.value = str(root.value)
+    queue.enqueue(root)
+    while not queue.is_empty():
+        if queue.front.value.child:
+            for node in queue.front.value.child:
+                if node.value is not str:
+                    if node.value %3 ==0 and node.value%5==0:
+                        node.value="Fizz Buzz"
+                    elif node.value % 3 == 0:
+                        node.value = "Fizz"
+                    elif node.value % 5 == 0 :
+                        node.value = "Buzz"
+                    
+                    else : 
+                        node.value = str(node.value)
+                queue.enqueue(node)
+        dequeued=queue.dequeue()
+        result.append(dequeued.value)
+    print(result)
+    
+    return root.value
+                
+
+
+
+
+
+
+        
+
     
 
 if __name__=='__main__':        
-    # node1 = TNode(2)
-    # node2 = TNode(7)
-    # node3 = TNode(5)
-    # node4 = TNode(2)
-    # node5 = TNode(6)
-    # node6 = TNode(9)
-    # node7 = TNode(5)
-    # node8=TNode(11)
-    # node9=TNode(4)
-   
-    # node1.left=node2
-    # node1.right=node3
-    # node2.left=node4
-    # node2.right=node5
-    # node3.right=node6
-    # node6.left=node9
-    # node5.left=node7
-    # node5.right=node8
 
-    tree = BinarpointerTree()
-    node1 = TNode(1)
-    node2 = TNode(2)
-    node3 = TNode(3)
-    node4 = TNode(4)
-    node5 = TNode(5)
-    node6 = TNode(6)
-    node7 = TNode(7) 
-    tree.root = node7
-    node7.left = node3
-    node7.right=node6
-    node3.left = node1
-    node3.right = node2
-    node6.left=node4
-    node6.right=node5   
-    
-
-    bs=BinarpointerSearchTree()
-    # tree = BinarpointerTree()
-    tree.root=node7
-    breadth_first(tree)
-    # bs.add(1)
-    # bs.add(2)
-    # bs.add(3)
-    # bs.add(4)
-    # tree.root = node7
-    # tree.pre_order_itiration()
-    # bs.add(5)
-    # bs.add(6)
-    # bs.inOrder_iteration()
-   
-
-    # bs.contains(1)
-    # bs.inOrder_iteration()
-    tree.tree_max()
+    node1 =kNode(1)
+    node2= kNode(10)
+    node3 =kNode(30)
+    node4=kNode(12)
+    node5=kNode(15)
+    node6=kNode(9)
+    node7=kNode(70)
+    node2.child.append(node5)
+    node5.child.append(node6)
+    node5.child.append(node7)
+    node1.child.append(node2)
+    node1.child.append(node3)
+    node1.child.append(node4)
+    tree=k_ary_Tree()
+    tree.root=node1
+    fizz_buzz_tree(tree)

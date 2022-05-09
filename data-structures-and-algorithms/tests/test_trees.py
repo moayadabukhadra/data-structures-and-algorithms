@@ -1,6 +1,7 @@
+import re
 import pytest
 import unittest
-from data_structures_and_algorithms.trees.trees import BinarpointerSearchTree, BinarpointerTree , TNode,breadth_first
+from data_structures_and_algorithms.trees.trees import BinarpointerSearchTree, BinarpointerTree , TNode,breadth_first,fizz_buzz_tree,kNode,k_ary_Tree
 
 
 def test_empty_tree():
@@ -19,7 +20,10 @@ def test_only_root_tree():
     expected= "root"
     assert actual== expected
 
-
+def test_BST_is_asub_class_of_bt():
+    actual=issubclass(BinarpointerSearchTree,BinarpointerTree)
+    expected=True
+    assert actual == expected
 def test_add_left_right_child():
     "instantiate abinary search tree"
     bs=BinarpointerSearchTree()
@@ -85,6 +89,39 @@ def test_breadth_first(tree):
     expected=[7, 3, 6, 1, 2, 4, 5]
     assert actual==expected
 
+def test_fizz_buzz():
+    node1 =kNode(1)
+    node2= kNode(10)
+    node3 =kNode(30)
+    node4=kNode(12)
+    node5=kNode(15)
+    node6=kNode(9)
+    node7=kNode(70)
+    node2.child.append(node5)
+    node5.child.append(node6)
+    node5.child.append(node7)
+    node1.child.append(node2)
+    node1.child.append(node3)
+    node1.child.append(node4)
+    tree=k_ary_Tree()
+    tree.root=node1
+
+    # running the function
+    
+    
+    actual = fizz_buzz_tree(tree)
+    expected = "1"
+    assert actual == expected
+
+    # for the child
+    childs=[]
+    for child in tree.root.child:
+        childs.append(child.value)
+    actual=childs
+    expected=["Buzz","Fizz Buzz","Fizz"]
+    assert actual==expected
+
+
 @pytest.fixture
 def tree():
     tree = BinarpointerTree()
@@ -103,6 +140,13 @@ def tree():
     node6.left=node4
     node6.right=node5   
     return tree
+
+
+
+
+
+    
+
 
 
 class TestStack(unittest.TestCase):
@@ -130,4 +174,10 @@ class TestStack(unittest.TestCase):
         tree=BinarpointerTree()
         with self.assertRaises(Exception):
             breadth_first(tree)
+
+    def test_k_tree(self):
+        tree=k_ary_Tree()
+        with self.assertRaises(Exception):
+            fizz_buzz_tree(tree)
+
     
