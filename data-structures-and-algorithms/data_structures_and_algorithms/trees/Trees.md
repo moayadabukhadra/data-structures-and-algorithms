@@ -49,4 +49,8 @@ this function list of all values in the tree, in the order they were encountered
 
 ![breadth_first](../images/breadth_first.jpg)
 
+- fizz_buzz_tree
+
+![fizz_buzz](../images/fizz_buzz_tree.jpg)
+
 
