@@ -237,6 +237,7 @@ class k_ary_Tree:
         self.root=None
     
 def fizz_buzz_tree(kTree):
+    new_tree=k_ary_Tree()
     if not kTree.root:
         raise Exception("The tree is empty")
     result=[]
@@ -248,6 +249,7 @@ def fizz_buzz_tree(kTree):
         root.value = "Buzz"
     else : 
         root.value = str(root.value)
+    new_tree.root=root
     queue.enqueue(root)
     while not queue.is_empty():
         if queue.front.value.child:
@@ -260,6 +262,7 @@ def fizz_buzz_tree(kTree):
                     elif node.value % 5 == 0 :
                         node.value = "Buzz"
                     
+                    
                     else : 
                         node.value = str(node.value)
                 queue.enqueue(node)
@@ -268,6 +271,49 @@ def fizz_buzz_tree(kTree):
     print(result)
     
     return root.value
+
+
+
+def get_files_Count(dir1,dir2):
+
+    q = Queue()
+    q2=Queue()
+    
+    count = 0 
+    count2=0
+    q.enqueue(dir1)
+    q2.enqueue(dir2)
+    while (not q.is_empty() or not q2.is_empty()):
+        
+            
+        if not q.is_empty():
+            temp = q.peek()
+            q.dequeue()
+            if (temp.left != None):
+                q.enqueue(temp.left)
+            if (temp.right != None):
+                q.enqueue(temp.right)
+            if (temp.left == None and
+                temp.right == None):
+                count += 1
+        
+        if not q2.is_empty():
+            temp2=q2.peek()
+            q2.dequeue()
+            if (temp2.left != None):
+                q2.enqueue(temp2.left)
+            if (temp2.right != None):
+                q2.enqueue(temp2.right)
+            if (temp2.left == None and
+                temp2.right == None):
+                count2 += 1
+    print(count==count2)
+    return count==count2
+ 
+ 
+ 
+
+
                 
 
 
@@ -280,7 +326,7 @@ def fizz_buzz_tree(kTree):
     
 
 if __name__=='__main__':        
-
+    
     node1 =kNode(1)
     node2= kNode(10)
     node3 =kNode(30)
