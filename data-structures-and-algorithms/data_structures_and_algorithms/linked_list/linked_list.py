@@ -213,24 +213,7 @@ class LinkedList:
         else:
             previous.set_next(current.get_next())
     
-    def zip_lists(self,list1,list2):
-        current1=list1.head
-        current2=list2.head
-        if current1==None:
-            return list2
-        if current2==None:
-            return list1
-        if current1 ==None and current2==None:
-            print("the two lists are empty")
-            raise Exception("the two lists are empty")
-        new_list=LinkedList()
-        current3=new_list.head
-        current3=current1
-        current3.next=current2
-        current1=current1.next
-        current2=current2.next
-        new_list.__str__
-        return new_list
+   
     
     def zip_lists(self,list1, list2):
         """
@@ -347,7 +330,7 @@ if __name__=="__main__":
     ll2=LinkedList()
     ll2.insert("m")
     ll2.insert("o")
-    ll2.insert("a")
+    ll2.insert("o")
     ll2.insert("o")
     ll2.insert("o")
     ll2.insert("m")
@@ -356,5 +339,5 @@ if __name__=="__main__":
     ll1.palindrome_two()
     ll2.palindrome_two()
     ll=LinkedList()
-    # ll.zip_lists(ll1,ll2)
+    ll.zip_lists(ll1,ll2)
 

@@ -51,15 +51,37 @@ class HashaTable(object):
         return keys_list
 
 
+def repeated_word(string):
+
+    if type(string)!= type(""):
+        raise Exception("the input should be a string")
+    hashtable=HashaTable()
+    words=string.lower().replace(","," ").split()
+
+    if len(words)==1:
+        return string
+    
+    for word in words:
+        hashtable.set(word,"temp_value")
+        for i in hashtable.map:
+            if i and  len(i)>=2:
+                print(i[0][0])
+
+                return i[0][0]
+
+  
+
 if __name__ == "__main__":
-    hashtable = HashaTable()
-    hashtable.set("cat", "AWS")
-    hashtable.set("act", "Azure")
-    hashtable.set("could", "Rainy")
-    hashtable.set("name", "Python")
-    hashtable.set("cat", "moayad")
-    print(hashtable.contains("cat"))
-    print(hashtable.get("cat"))
-    for i in hashtable.map:
-        print(i)
-    print(hashtable.keys())
+    # hashtable = HashaTable()
+    # hashtable.set("cat", "AWS")
+    # hashtable.set("act", "Azure")
+    # hashtable.set("could", "Rainy")
+    # hashtable.set("name", "Python")
+    # hashtable.set("cat", "moayad")
+    # print(hashtable.contains("cat"))
+    # print(hashtable.get("cat"))
+    # for i in hashtable.map:
+    #     print(i)
+    # print(hashtable.keys())
+    repeated_word("Once upon a time, there was a brave princess who...")
+    

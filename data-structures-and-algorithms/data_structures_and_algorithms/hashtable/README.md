@@ -59,5 +59,12 @@ space complexity: O(1)
 
 
 
+## repeated word
+
+![whiteboard](../images/Untitled%20(14).jpg)
+
+![whiteboard](../images/Untitled%20(16).jpg)
+
+![whiteboard](../images/Untitled%20(17).jpg)
 
 
