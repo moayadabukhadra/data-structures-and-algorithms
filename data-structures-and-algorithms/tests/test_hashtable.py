@@ -1,4 +1,4 @@
-from data_structures_and_algorithms.hashtable.hashtable import HashaTable
+from data_structures_and_algorithms.hashtable.hashtable import HashaTable,repeated_word
 import unittest
 
 def test_key_value_added_to_hashtable():
@@ -63,11 +63,15 @@ def test_hashing_key_in_range():
     assert actual < 1024
 
 
+def test_repeated_words():
+    actual = repeated_word("Once upon a time, there was a brave princess who...")
+    expected="a"
+    assert actual==expected
 
-
-
-
-
+def test_repeated_words_edge_case():
+    actual = repeated_word("hello")
+    expected="hello"
+    assert actual==expected
 
 
 
@@ -76,5 +80,6 @@ def test_hashing_key_in_range():
 
 
 class Testhashtable(unittest.TestCase):
-    pass
-
+    def test_repeated_word_edge_case_two(self):
+        with self.assertRaises(Exception):
+            repeated_word(5)
