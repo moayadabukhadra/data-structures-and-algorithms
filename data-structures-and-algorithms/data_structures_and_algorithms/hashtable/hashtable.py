@@ -72,16 +72,12 @@ def repeated_word(string):
   
 
 if __name__ == "__main__":
-    # hashtable = HashaTable()
-    # hashtable.set("cat", "AWS")
-    # hashtable.set("act", "Azure")
-    # hashtable.set("could", "Rainy")
-    # hashtable.set("name", "Python")
-    # hashtable.set("cat", "moayad")
-    # print(hashtable.contains("cat"))
-    # print(hashtable.get("cat"))
-    # for i in hashtable.map:
-    #     print(i)
-    # print(hashtable.keys())
-    repeated_word("Once upon a time, there was a brave princess who...")
+    hashtable = HashaTable()
+    hashtable.set("cat", "AWS")
+    hashtable.set("act", "Azure")
+    hashtable.set("could", "Rainy")
+    hashtable.set("name", "Python")
+    hashtable.set("cat", "moayad")
+
+    print(hashtable.hash("50"))
     

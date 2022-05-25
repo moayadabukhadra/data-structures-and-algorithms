@@ -39,7 +39,7 @@ class BinarpointerTree:
 
         while not stack.is_empty():
             current = stack.pop()
-            print(current.value)
+
             result.append(current.value)
 
             if current.right:
@@ -47,7 +47,7 @@ class BinarpointerTree:
 
             if current.left:
                 stack.push(current.left)
-        print(result)
+
         return result
 
     def inOrder_iteration(self):
@@ -149,6 +149,61 @@ class BinarpointerTree:
 
         print(max)
         return max
+
+def height(node):
+    
+    #if node is null, we return 0.
+    if node is None: 
+        return 0
+        
+    #else we call the recursive function, height for left and right 
+    #subtree and choose their maximum. we also add 1 to the result
+    #which indicates height of root of the tree.
+    return (1 + max(height(node.left), height(node.right)))
+
+def identical(tree1,tree2):
+    root1=tree1.root
+    root2=tree2.root
+    stack1=Stack()
+    stack2=Stack()
+    stack1.push(root1)
+    stack2.push(root2)
+    
+    while not stack1.is_empty() and not stack2.is_empty():
+        root1=stack1.pop()
+        root2=stack2.pop()
+        if root1.value == root2.value:
+            result = True
+
+            if root1.left and root2.left:
+                stack1.push(root1.right)
+                stack2.push(root2.right)
+            if root1.right and root2.right:
+                stack1.push(root1.right)
+                stack2.push(root2.right)
+        else:
+            return False
+    return result
+
+def mirror_tree(root):
+    if root is None:
+        return
+    mirror_tree(root.left)
+    mirror_tree(root.right)
+
+    temp=root.left
+    root.left=root.right 
+    root.right = temp 
+
+
+
+            
+
+
+
+            
+
+            
     
 
 
@@ -327,19 +382,41 @@ def get_files_Count(dir1,dir2):
 
 if __name__=='__main__':        
     
-    node1 =kNode(1)
-    node2= kNode(10)
-    node3 =kNode(30)
-    node4=kNode(12)
-    node5=kNode(15)
-    node6=kNode(9)
-    node7=kNode(70)
-    node2.child.append(node5)
-    node5.child.append(node6)
-    node5.child.append(node7)
-    node1.child.append(node2)
-    node1.child.append(node3)
-    node1.child.append(node4)
-    tree=k_ary_Tree()
-    tree.root=node1
-    fizz_buzz_tree(tree)
+    # node1 =kNode(1)
+    # node2= kNode(10)
+    # node3 =kNode(30)
+    # node4=kNode(12)
+    # node5=kNode(15)
+    # node6=kNode(9)
+    # node7=kNode(70)
+    # node2.child.append(node5)
+    # node5.child.append(node6)
+    # node5.child.append(node7)
+    # node1.child.append(node2)
+    # node1.child.append(node3)
+    # node1.child.append(node4)
+    # tree=k_ary_Tree()
+    # tree.root=node1
+    # fizz_buzz_tree(tree)
+    tree = BinarpointerTree()
+    node1 = TNode(1)
+    node2 = TNode(1)
+    node3 = TNode(3)
+    node4 = TNode(4)
+    node5 = TNode(4)
+    node6 = TNode(3)
+    node7 = TNode(7) 
+    node8=TNode(8)
+    tree.root = node7
+    node7.left = node3
+    node7.right=node6
+    node3.left = node1
+    node3.right = node2
+    node6.left=node4
+    node6.right=node5   
+
+
+    tree2 = BinarpointerTree()
+    
+    tree2.root = node3
+    print(sym(tree))
