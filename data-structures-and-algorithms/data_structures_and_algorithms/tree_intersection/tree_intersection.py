@@ -23,6 +23,9 @@ def tree_intersection(tree1,tree2):
 
 
 
+
+
+
 if __name__=='__main__':
     tree = BinarpointerTree()
     node1 = TNode(1)
