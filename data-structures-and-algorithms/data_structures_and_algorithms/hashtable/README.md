@@ -68,3 +68,20 @@ space complexity: O(1)
 ![whiteboard](../images/Untitled%20(17).jpg)
 
 
+## left join 
+
+Input: two hashmaps
+
+output: list
+
+![visual](../images/VISUAL_LEFT_JOIN.jpg)
+
+![code](../images/code.jpg)
+
+
+![verfication](../images/verf._left_join.jpg)
+
+
+BigO Time Complexity: O(N)
+BigO Space Complexity: O(1)
+

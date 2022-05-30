@@ -69,15 +69,43 @@ def repeated_word(string):
 
                 return i[0][0]
 
+
+def left_join(Synonyms,Antonyms):
+    if type(Synonyms) and type(Antonyms) != type([]):
+        raise Exception("the input should be 2 hashmaps")
+
+    if Synonyms== [None]*1024:
+        raise(Exception("the Synonyms hashmap is empty"))
+
+    new_map=[]
+    for i in  range(0,len(Synonyms)):
+        if Synonyms[i] and Antonyms[i]:
+            new_map.append([Synonyms[i][0][0],Synonyms[i][0][1],Antonyms[i][0][1]])
+                
+        elif Synonyms[i] and not Antonyms[i]:
+            new_map.append([Synonyms[i][0][0],Synonyms[i][0][1],None])
+
+    return new_map
+        
   
 
 if __name__ == "__main__":
     hashtable = HashaTable()
-    hashtable.set("cat", "AWS")
-    hashtable.set("act", "Azure")
-    hashtable.set("could", "Rainy")
-    hashtable.set("name", "Python")
-    hashtable.set("cat", "moayad")
+    hashtable.set("diligent", "employed")
+    hashtable.set("fond", "enamored")
+    hashtable.set("guide", "usher")
+    hashtable.set("outfit", "garb")
+    hashtable.set("wrath", "anger")
 
-    print(hashtable.hash("50"))
+    hashtable2=HashaTable()
+    hashtable2.set("diligent", "idle")
+    hashtable2.set("fond", "averse")
+    hashtable2.set("guide", "follow")
+    hashtable2.set("flow", "jam")  
+    hashtable2.set("wrath", "delight")
+    temphash=HashaTable()
+    print(left_join(hashtable.map,hashtable2.map))
+
+
+    
     

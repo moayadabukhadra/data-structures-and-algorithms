@@ -1,4 +1,4 @@
-from data_structures_and_algorithms.hashtable.hashtable import HashaTable,repeated_word
+from data_structures_and_algorithms.hashtable.hashtable import HashaTable,repeated_word,left_join
 import unittest
 
 def test_key_value_added_to_hashtable():
@@ -73,6 +73,26 @@ def test_repeated_words_edge_case():
     expected="hello"
     assert actual==expected
 
+def test_left_join():
+    Synonyms = HashaTable()
+    Synonyms.set("diligent", "employed")
+    Synonyms.set("fond", "enamored")
+    Synonyms.set("guide", "usher")
+    Synonyms.set("outfit", "garb")
+    Synonyms.set("wrath", "anger")
+
+    Antonyms =HashaTable()
+    Antonyms.set("diligent", "idle")
+    Antonyms.set("fond", "averse")
+    Antonyms.set("guide", "follow")
+    Antonyms.set("flow", "jam")  
+    Antonyms.set("wrath", "delight")
+
+    actual=left_join(Synonyms.map,Antonyms.map)
+    expected=[['wrath', 'anger', 'delight'], ['outfit', 'garb', None], ['diligent', 'employed', 'idle'], ['guide', 'usher', 'follow'], ['fond', 'enamored', 'averse']]
+    assert actual==expected
+
+
 
 
 
@@ -83,3 +103,13 @@ class Testhashtable(unittest.TestCase):
     def test_repeated_word_edge_case_two(self):
         with self.assertRaises(Exception):
             repeated_word(5)
+
+    def test_left_join_edge_case_one(self):
+        with self.assertRaises(Exception):
+            hashtable=HashaTable()
+            left_join(5,hashtable.map)
+        
+    def test_left_join_edge_case_two(self):
+        with self.assertRaises(Exception):
+            hashtable=HashaTable()
+            left_join(hashtable.map,5)
