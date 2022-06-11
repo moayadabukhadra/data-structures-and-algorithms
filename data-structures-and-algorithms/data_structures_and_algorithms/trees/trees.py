@@ -150,40 +150,6 @@ class BinarpointerTree:
         print(max)
         return max
 
-def height(node):
-    
-    #if node is null, we return 0.
-    if node is None: 
-        return 0
-        
-    #else we call the recursive function, height for left and right 
-    #subtree and choose their maximum. we also add 1 to the result
-    #which indicates height of root of the tree.
-    return (1 + max(height(node.left), height(node.right)))
-
-def identical(tree1,tree2):
-    root1=tree1.root
-    root2=tree2.root
-    stack1=Stack()
-    stack2=Stack()
-    stack1.push(root1)
-    stack2.push(root2)
-    
-    while not stack1.is_empty() and not stack2.is_empty():
-        root1=stack1.pop()
-        root2=stack2.pop()
-        if root1.value == root2.value:
-            result = True
-
-            if root1.left and root2.left:
-                stack1.push(root1.right)
-                stack2.push(root2.right)
-            if root1.right and root2.right:
-                stack1.push(root1.right)
-                stack2.push(root2.right)
-        else:
-            return False
-    return result
 
 def mirror_tree(root):
     if root is None:
@@ -195,7 +161,78 @@ def mirror_tree(root):
     root.left=root.right 
     root.right = temp 
 
+def same_tree(root1,root2):
+    if root1 is None and root2 is None:
+        return True
+    if root1 is None or root2 is None:
+        return False
+    if root1.value == root2.value:
+        return True
+    
+    return same_tree(root1.left,root2.left) and same_tree(root1.right,root2.right)
 
+def is_mirror_tree(root):
+    left=root.left
+    right=root.right
+    list=[]
+    if left is None and right is None:
+        return True
+    if left is None or right is None:
+        return False
+    list.append(left.value)
+    list.append(right.value)
+    while list!=[]:
+        list.append(left.left.value)
+        list.append(right.right.value)
+        
+
+    if left.left or left.right or right.left or right.right:
+        return False
+    return True
+    
+
+
+def sym_leafs(root1,root2):
+    stack1=[]
+    stack2=[]
+    list1=[]
+    list2=[]
+    stack1.append(root1)
+    stack2.append(root2)
+    while not stack1 == [] or not stack2 == []:
+        if not stack1 == []:
+            current = stack1.pop()
+
+            if not current.left and not current.right:
+                list1.append(current.value)
+
+            if current.right:
+                stack1.append(current.right)
+
+            if current.left:
+                stack1.append(current.left)
+        if not stack2 == []:
+            current2 = stack2.pop()
+            if not current2.left and not current2.right:
+                list2.append(current2.value)
+            if current2.right:
+                stack2.append(current2.right)
+            if current2.left:
+                stack2.append(current2.left)
+    print(list1)
+    print(list2)
+    return list1==list2
+
+
+    
+   
+
+    
+
+
+    
+    
+        
 
             
 
@@ -366,7 +403,15 @@ def get_files_Count(dir1,dir2):
     return count==count2
  
  
- 
+def invert_tree(root):
+    temp = root 
+    temp.left, temp.right = temp.right, temp.left
+    if temp.left:
+        invert_tree(temp.left)
+    if temp.right:
+        invert_tree(temp.right)
+    return root
+
 
 
                 
@@ -400,11 +445,11 @@ if __name__=='__main__':
     # fizz_buzz_tree(tree)
     tree = BinarpointerTree()
     node1 = TNode(1)
-    node2 = TNode(1)
+    node2 = TNode(2)
     node3 = TNode(3)
     node4 = TNode(4)
-    node5 = TNode(4)
-    node6 = TNode(3)
+    node5 = TNode(5)
+    node6 = TNode(6)
     node7 = TNode(7) 
     node8=TNode(8)
     tree.root = node7
@@ -418,5 +463,6 @@ if __name__=='__main__':
 
     tree2 = BinarpointerTree()
     
-    tree2.root = node3
-    print(sym(tree))
+    tree2.root = node7
+    print(add_row(tree2.root,8,1))
+    print(tree2.postOrder_Iteration())

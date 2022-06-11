@@ -123,6 +123,9 @@ class LinkedList:
         except:
                 print("the index should be a positive integer value")
                 raise ValueError("the index should be a positive integer value")
+
+    
+
             
             
 
@@ -302,6 +305,19 @@ class LinkedList:
         print(result)
         return result
 
+
+def reverse_linked_list(ll):
+    "this function reverses the linked list"
+    current = ll.head
+    previous = None
+    while current:
+        next = current.next
+        current.next = previous
+        previous = current
+        current = next
+    ll.head = previous
+    return ll
+
         
                 
             
@@ -335,9 +351,7 @@ if __name__=="__main__":
     ll2.insert("o")
     ll2.insert("m")
 
-    ll2.__str__()
-    ll1.palindrome_two()
-    ll2.palindrome_two()
     ll=LinkedList()
-    ll.zip_lists(ll1,ll2)
+    reverse_linked_list(ll1)
+    ll1.__str__()
 

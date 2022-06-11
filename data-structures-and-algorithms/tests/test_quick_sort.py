@@ -30,4 +30,8 @@ class TestCase(unittest.TestCase):
     def test_quick_sort_edge_case2(self):
         with self.assertRaises(Exception):
             quick_sort([4, 8, 15, 16, 23, 42],"2",3)
+
+    def test_quick_sort_edge_case3(self):
+        with self.assertRaises(Exception):
+            quick_sort([4, 8, 15, 16, 23, 42],2,"3")
         
