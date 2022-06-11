@@ -86,25 +86,70 @@ def left_join(Synonyms,Antonyms):
             new_map.append([Synonyms[i][0][0],Synonyms[i][0][1],None])
 
     return new_map
+
+
+def most_common_word(string):
+    max=0
+    most_common=None
+    if type(string)!= type(""):
+        raise Exception("the input should be a string")
+    hashtable=HashaTable()
+    words=string.lower().split()
+    
+    if len(words)==1:
+        return string
+        
+    for word in words:
+        hashtable.set(word,"temp_value")
+    for i in hashtable.map:
+        if i is not None:
+            if len(i)>max:
+                max=len(i)
+                most_common=i[0][0]
+    return most_common
+
+def unique_characters(string):
+    string=string.replace(" ","")
+    if type(string)!= type(""):
+        raise Exception("the input should be a string")
+    hashtable=HashaTable()
+    for ch in string:
+        hashtable.set(ch,"temp_value")
+        i=hashtable.hash(ch)
+        if len(hashtable.map[i])>1:
+            return False
+    return True
+
+
+    
+
+
+
+
+
+    
         
   
 
 if __name__ == "__main__":
-    hashtable = HashaTable()
-    hashtable.set("diligent", "employed")
-    hashtable.set("fond", "enamored")
-    hashtable.set("guide", "usher")
-    hashtable.set("outfit", "garb")
-    hashtable.set("wrath", "anger")
+    # hashtable = HashaTable()
+    # hashtable.set("diligent", "employed")
+    # hashtable.set("fond", "enamored")
+    # hashtable.set("guide", "usher")
+    # hashtable.set("outfit", "garb")
+    # hashtable.set("wrath", "anger")
 
-    hashtable2=HashaTable()
-    hashtable2.set("diligent", "idle")
-    hashtable2.set("fond", "averse")
-    hashtable2.set("guide", "follow")
-    hashtable2.set("flow", "jam")  
-    hashtable2.set("wrath", "delight")
-    temphash=HashaTable()
-    print(left_join(hashtable.map,hashtable2.map))
+    # hashtable2=HashaTable()
+    # hashtable2.set("diligent", "idle")
+    # hashtable2.set("fond", "averse")
+    # hashtable2.set("guide", "follow")
+    # hashtable2.set("flow", "jam")  
+    # hashtable2.set("wrath", "delight")
+    # temphash=HashaTable()
+    # print(left_join(hashtable.map,hashtable2.map))
+    # print(most_common_word("No. Try not. Do or do not. There is no try."))
+
+    print(unique_characters("I love cats	"))
 
 
     
