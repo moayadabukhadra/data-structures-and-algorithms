@@ -37,33 +37,33 @@ Returns: a string representing all the values in the Linked List, formatted as:
 ### insert before
 - insert a node before a given value for a node
 
-![insert_before](/data_structures_and_algorithms/images/insert_before.jpg)
+![insert_before](../../data_structures_and_algorithms/images/insert_before.jpg)
 
 ## insert after 
 - insert a node after a given value for a node 
 
-![insert_after](/data_structures_and_algorithms/images/insert_after.jpg)
+![insert_after](../../data_structures_and_algorithms/images/insert_after.jpg)
 
 ## append 
 
 - adds a node to the end of the lest 
-![append](/data_structures_and_algorithms/images/append.jpg)
+![append](../../data_structures_and_algorithms/images/append.jpg)
 
 ## KthFromEnd:
 
 - return a node with the index of an integer from the back of the linked list 
-![KthFromEnd](/data_structures_and_algorithms/images/KthFromEnd.jpg)
+![KthFromEnd](../../data_structures_and_algorithms/images/KthFromEnd.jpg)
 
 ## zip_lists
 -  takes two list as input and returns a new list of the two list zipped together 
 
-![zip_lists](/data_structures_and_algorithms/images/zip_lists.jpg)
+![zip_lists](../../data_structures_and_algorithms/images/zip_lists.jpg)
 
 ## palindrome
 
 - "this function checks if the linked list is palindrome returns true else returns False"
 
-![palindrome](/data_structures_and_algorithms/images/palindrome.jpg)
+![palindrome](../../data_structures_and_algorithms/images/palindrome.jpg)
 
 
 
